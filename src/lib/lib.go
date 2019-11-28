@@ -3,6 +3,7 @@ package lib
 import (
 	"io/ioutil"
 	"strings"
+	"sort"
 )
 
 // Sum a list of ints
@@ -17,6 +18,12 @@ func Sum(input ...int) int {
 // ReadAndSplit Read file and return split lines
 func ReadAndSplit(fileName string) []string {
 	input, _ := ioutil.ReadFile(fileName)
-	inputLines := strings.Split(string(input), "\n")
-	return inputLines
+	return strings.Split(string(input), "\n")
+}
+
+// SortString returns a sorted string
+func SortString(w string) string {
+    s := strings.Split(w, "")
+    sort.Strings(s)
+    return strings.Join(s, "")
 }
