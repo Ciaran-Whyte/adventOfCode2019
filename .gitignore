@@ -2,3 +2,4 @@ bin
 pkg
 .env
 venv
+.vscode

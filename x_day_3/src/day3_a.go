@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"math"
 	"strconv"
 	"strings"
 )
@@ -21,8 +22,6 @@ func parseCords(inputStrings []string) []line {
 	cords := []point{}
 	cords = append(cords, point{x: 0, y: 0})
 	idx := 0
-
-	fmt.Println(inputStrings)
 	for _, x := range inputStrings {
 		m, _ := strconv.Atoi(x[1:])
 		if x[0] == 'R' {
@@ -53,8 +52,30 @@ func readLineInputsFromFile(fileName string) ([]line, []line) {
 	return lineA, lineB
 }
 
+func manhattanDistance(point_a point, point_b point) int {
+	return int(math.Abs(float64(point_a.x-point_b.x)) + math.Abs(float64(point_a.y-point_b.y)))
+}
+
+func intersect(a line, b line) bool {
+	
+	return false
+}
+
+func findIntersection(a line, b line) point {
+	
+}
+
 func main() {
 	lineA, lineB := readLineInputsFromFile("/Users/ciaran.whyte/dev/adventofcode2019/x_day_3_a/src/input.txt")
 	fmt.Println(lineA)
 	fmt.Println(lineB)
+
+	var intersections []point
+	for _, a := range lineA{
+		for _, b := range lineB{
+			if intersect(a, b) {
+				intersections = append(intersections, findIntersection(a, b))
+			}
+		}
+	}
 }
